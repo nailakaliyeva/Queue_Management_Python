@@ -11,9 +11,9 @@ def print_queue():
     print("Printing the entire list...")
     print(queue.get_queue())
 
-def add():
-    pass
-
+def add(person):
+    queue.enqueue(person)
+    print(queue._queue)
 def dequeue():
     pass
 
@@ -45,5 +45,7 @@ What would you like to do (type a number and press Enter)?
     elif option == 6:
         print("Bye bye!")
         stop = True
+    elif option == 1:
+        add(input("What is your name?"))
     else:
         print("Not implemented yet or invalid option "+str(option))
