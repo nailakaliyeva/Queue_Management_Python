@@ -11,7 +11,7 @@ class Queue:
     def enqueue(self, item):
         self._queue.append(item)
     def dequeue(self):
-        pass
+        self._queue.pop()
     def get_queue(self):
         return self._queue
     def size(self):

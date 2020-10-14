@@ -15,7 +15,9 @@ def add(person):
     queue.enqueue(person)
     print(queue._queue)
 def dequeue():
-    pass
+    queue.dequeue()
+    print(queue._queue)
+
 
 def save():
     pass
@@ -47,5 +49,7 @@ What would you like to do (type a number and press Enter)?
         stop = True
     elif option == 1:
         add(input("What is your name?"))
+    elif option == 2:
+        dequeue()
     else:
         print("Not implemented yet or invalid option "+str(option))
