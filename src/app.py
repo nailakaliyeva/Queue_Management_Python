@@ -1,17 +1,6 @@
-import json, os
+import json
 from DataStructures import Queue
 from sms import send
-
-from twilio.rest import Client
-if os.getenv("account_sid") is None or os.getenv("account_sid") == "":
-    print("ERROR! Make sure you have created your .env file with your API credentials (look for the .evn.example as an example and replace it with your own API credentials that you got from RapidAPI)")
-    exit(1)
-account_sid = os.getenv("account_sid")
-auth_token = os.getenv("auth_token")
-
-account_sid = account_sid
-auth_token = auth_token
-client = Client(account_sid, auth_token)
 
 # there queue has to be declared globally (outside any other function)
 # that way all methods have access to it
@@ -28,13 +17,9 @@ def add(person):
 
 def dequeue():
     queue.dequeue()
+    send(queue.popped)
     print(queue._queue)
-    message = client.messages.create(
-    to=queue.popped, 
-    from_="+15017250604",
-    body="Hello from Python!")
-    print(message.sid)
-
+    
 def save():
     with open("queue.json", "w") as f:
         json.dump(queue._queue, f)
