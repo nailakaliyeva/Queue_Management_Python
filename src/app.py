@@ -19,7 +19,7 @@ def dequeue():
     print(queue._queue)
 
 def save():
-    with open("json_file.json", "a") as f:
+    with open("queue.json", "a") as f:
         json.dump(queue._queue, f)
         
 
