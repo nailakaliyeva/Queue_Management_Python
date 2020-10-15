@@ -18,9 +18,10 @@ def dequeue():
     queue.dequeue()
     print(queue._queue)
 
-
 def save():
-    pass
+    with open("json_file.json", "a") as f:
+        json.dump(queue._queue, f)
+        
 
 def load():
     pass 
@@ -51,5 +52,7 @@ What would you like to do (type a number and press Enter)?
         add(input("What is your name?"))
     elif option == 2:
         dequeue()
+    elif option == 4:
+        save()
     else:
         print("Not implemented yet or invalid option "+str(option))
