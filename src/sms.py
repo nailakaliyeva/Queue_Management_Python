@@ -18,7 +18,7 @@ def send(phone, body='You are next to be seated'):
                     .create(
                         body=body,
                         from_='+12052365320',
-                        to='+'+ phone
+                        to='+1'+ phone
                     )
 
     print(message.sid)
