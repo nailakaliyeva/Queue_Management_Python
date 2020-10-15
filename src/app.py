@@ -19,12 +19,14 @@ def dequeue():
     print(queue._queue)
 
 def save():
-    with open("queue.json", "a") as f:
+    with open("queue.json", "w") as f:
         json.dump(queue._queue, f)
         
 
 def load():
-    pass 
+    with open("queue.json", "r") as f:
+        content = f.readlines()
+        print(content)
         
     
 print("\nHello, this is the Command Line Interface for a Queue Managment application.")
@@ -54,5 +56,7 @@ What would you like to do (type a number and press Enter)?
         dequeue()
     elif option == 4:
         save()
+    elif option == 5:
+        load()
     else:
         print("Not implemented yet or invalid option "+str(option))
